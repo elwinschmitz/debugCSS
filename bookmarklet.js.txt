@@ -1,0 +1,6 @@
+javascript:
+var debugCSS = document.createElement("link");
+debugCSS.setAttribute("rel","stylesheet");
+debugCSS.setAttribute("href","http://localhost/Handig/debug.css/_debug.css");
+document.head.appendChild(debugCSS);
+document.documentElement.classList.add(window.prompt("Set debug type:", "debug-all"));

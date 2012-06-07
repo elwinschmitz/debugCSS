@@ -1,0 +1,233 @@
+/*
+  _debug.css
+
+  Author: Fabrique [brands, design & interaction] - http://fabrique.nl/
+          ELS,
+
+============================================================================= */
+
+/* Empty tags */
+/*div:empty,*/
+a:empty,
+b:empty,
+abbr:empty,
+acronym:empty,
+dd:empty,
+dl:empty,
+dt:empty,
+h1:empty,
+h2:empty,
+h3:empty,
+h4:empty,
+h5:empty,
+h6:empty,
+li:empty,
+ol:empty,
+p:empty,
+span:empty,
+strong:empty,
+ul:empty {
+	padding: 0 0 0 50px !important;
+	background-color: red !important;
+}
+h1:empty,
+h2:empty,
+h3:empty,
+h4:empty,
+h5:empty,
+h6:empty,
+ol:empty,
+p:empty,
+ul:empty {
+	height:20px;
+}
+/* Exceptions: */
+#fb-root a:empty /* AddThis */ {
+	padding: 0 !important;
+	background-color: inherit !important;
+}
+
+
+/* Sections: */
+.debug section.main {
+  outline: 1px dashed silver;
+}
+
+/* Headers */
+.debug h1,
+.debug h2,
+.debug h3,
+.debug h4 {
+  background-color: rgba(0,0,100, 0.1);
+}
+
+
+/* Links */
+
+/* missing */
+a:not([href]),
+/* empty */
+a[href=""],
+/* hash only */
+a[href="#"],
+/* obtrusive JavaScript */
+a[href*="javascript"],
+a[href*="<"],
+a[href*=">"] {
+	border-bottom: 2px solid red !important;
+}
+
+/* target :| */
+a[target] {
+	border-bottom: 2px solid red !important;
+}
+
+/* Exceptions: */
+a.addthis_button_tweet[href="#"], /* AddThis */
+.ui-datepicker a:not([href]), /* jQuery UI: datepicker */
+.ui-datepicker a[href="#"], /* jQuery UI: dialog */
+.ui-dialog-titlebar-close[href="#"], /* jQuery UI: dialog */
+#fb-root a:not([href]) {
+	border-bottom: inherit !important;
+}
+
+a[href$="#FIXME"] {
+  border-color: blue;
+}
+
+
+/* Lists */
+
+.debug ul li {
+  list-style: square outside;
+  outline: 1px solid rgba(100,0,0, 0.2);
+  background-color: rgba(100,0,0, 0.1);
+}
+.debug ol li {
+  list-style: decimal outside;
+  outline: 1px solid rgba(0,0,0, 0.2);
+  background-color: rgba(0,0,0, 0.1);
+}
+
+
+/* Embedded content */
+
+/* missing src */
+img:not([src]),
+/* empty src */
+img[src=""] {
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-bottom: 2px solid red !important;
+	background-color: rgba(255,0,0, .2);
+}
+
+/* missing alt */
+img:not([alt]),
+/* empty alt */
+img[alt=""] {
+	display: inline-block;
+	min-width: 30px;
+	min-height: 30px;
+	border-bottom: 2px solid red !important;
+	background-color: rgba(255,0,0, .2);
+}
+
+/* Exceptions: */
+
+
+/* height / width */
+img[height],
+img[width] {
+	border-bottom:2px solid red !important;
+}
+
+
+
+/*
+  Grid
+================== */
+/* */
+.debug-grid body:before {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  content: '';
+/* * /
+}
+.debug-grid body {
+/* */
+  background: url(_debug-grid.png) center top repeat-y fixed;
+}
+
+
+/*
+  Baseline
+============== */
+
+.debug-baseline body {
+/* * /
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  content: '';
+/* */
+  background: url(_debug-baseline.png) repeat top left scroll;
+}
+
+.debug-baseline h1,
+.debug-baseline h2,
+.debug-baseline h3,
+.debug-baseline h4 {
+  background-color: rgba(0,0,100, 0.1);
+}
+
+
+/*
+  Breakpoints
+=============== */
+
+.debug-break body:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em;
+  background: silver;
+  border: 1px solid gray;
+}
+
+.debug body:after {
+  content: "no-mq";
+}
+
+@media all and (min-width: 30em)  {.debug body:after{content: "1-col" }}
+@media all and (min-width: 1px) {.debug body:after{content: "mq+xsmall" }}
+@media all and (min-width: 300px) {.debug body:after{content: "small 300+" }}
+@media all and (min-width: 480px) {.debug body:after{content: "medium 480+" }}
+@media all and (min-width: 600px) {.debug body:after{content: "tablet 600+" }}
+@media all and (min-width: 900px) {.debug body:after{content: "tablet 900+" }}
+@media all and (min-width: 1025px) {.debug body:after{content: "desktop 1025+" }}
+@media all and (min-width: 1200px) {.debug body:after{content: "desktop 1200+" }}
+@media all and (min-width: 1440px) {.debug body:after{content: "desktop 1440+" }}
+@media all and (min-width: 1600px) {.debug body:after{content: "desktop 1600+" }}
+@media all and (min-width: 1920px) {.debug body:after{content: "desktop 1920+" }}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: portrait)  {.debug body:after{content: "ipad-portrait"!important }}
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation: landscape) {.debug body:after{content: "ipad-landscape"!important }}
+
